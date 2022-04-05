@@ -9,10 +9,8 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   public formattedSportsResponse: any;
   public sportsData: any;
-  public isTennisChecked: boolean = false;
-  public isF1Checked: boolean = false;
-  public isNbaChecked: boolean = false;
   public selectedSprortCategory: string;
+  public searchString: string;
 
   constructor(public service: AppService) {}
 
