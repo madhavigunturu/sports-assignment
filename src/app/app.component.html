@@ -1,29 +1,38 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="m-5">
+  <div class="">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="tennis" [(ngModel)]="selectedSprortCategory" (change)="changeSelection()">
+      <label class="form-check-label" for="inlineRadio1">Tennis</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="f1" [(ngModel)]="selectedSprortCategory" (change)="changeSelection()">
+      <label class="form-check-label" for="inlineRadio2">f1Results</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="nba" [(ngModel)]="selectedSprortCategory" (change)="changeSelection()">
+      <label class="form-check-label" for="inlineRadio3">nbaResults</label>
+    </div>
+  </div>
+  <div class="table-responsive mt-3">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Tournament</th>
+          <th scope="col">Sport Category</th>
+          <th scope="col">Winner</th>
+          <th scope="col">Publication Date</th>
+          <th scope="col">Other Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let value of sportsData">
+          <td>{{value.tournament}}</td>
+          <td>{{value.category}}</td>
+          <td>{{value.winner}}</td>
+          <td>{{value.publicationDate}}</td>
+          <td *ngIf="value && value.other"><div *ngFor="let x of value.other | keyvalue" class="text-truncate">{{x.key + ': ' + x.value}}</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
