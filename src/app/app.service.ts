@@ -7,9 +7,9 @@ import { SportsResponse } from './sports-response.interface';
   providedIn: 'root'
 })
 export class AppService {
-  public url = 'https://ancient-wood-1161.getsandbox.com:443/results';
+  private url = 'https://ancient-wood-1161.getsandbox.com:443/results';
    
-  constructor(public httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
   
   getSportsData(): Observable<any> {
     const headers= new HttpHeaders()
